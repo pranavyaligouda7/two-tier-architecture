@@ -19,7 +19,7 @@ pipeline {
 
         stage('Write .env') {
             steps {
-                // Write the .env file on the server — it never touches git
+                // Write the .env file on the server
                 sh '''
                     cat > .env << EOF
 MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
