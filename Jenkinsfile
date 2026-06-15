@@ -3,10 +3,10 @@ pipeline {
 
     environment {
         // Pull secrets from Jenkins credential store — never from git
-        MYSQL_ROOT_PASSWORD = credentials('DB_MYSQL_ROOT_PASSWORD')
-        MYSQL_DATABASE      = credentials('DB_MYSQL_DATABASE')
-        MYSQL_USER          = credentials('DB_MYSQL_USER')
-        MYSQL_PASSWORD      = credentials('DB_MYSQL_PASSWORD')
+        MYSQL_ROOT_PASSWORD = credentials('MYSQL_ROOT_PASSWORD')
+        MYSQL_DATABASE      = credentials('MYSQL_DATABASE')
+        MYSQL_USER          = credentials('MYSQL_USER')
+        MYSQL_PASSWORD      = credentials('MYSQL_PASSWORD')
     }
 
     stages {
