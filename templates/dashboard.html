@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – Message Board</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Message Board</h1>
+      <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('health') }}">Health</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────── -->
+  <main class="container">
+
+    <!-- Flash messages (success / error) -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-list">
+          {% for category, message in messages %}
+            <li class="flash flash--{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Add message form -->
+    <section class="card">
+      <h2>New message</h2>
+      <form action="{{ url_for('add') }}" method="POST">
+        <label for="user_text" class="sr-only">Your message</label>
+        <div class="form-row">
+          <input
+            type="text"
+            id="user_text"
+            name="user_text"
+            class="form-input"
+            placeholder="Type something and hit Send…"
+            maxlength="500"
+            required
+            autocomplete="off"
+          />
+          <button type="submit" class="btn">Send</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Messages list -->
+    <section class="card">
+      <h2>
+        Messages
+        <span class="badge">{{ saved_messages | length }}</span>
+      </h2>
+
+      {% if saved_messages %}
+        <ul class="message-list">
+          {% for msg in saved_messages %}
+            <li class="message-item">
+              <span class="message-text">{{ msg.message_text }}</span>
+              <span class="message-meta">#{{ msg.id }}&nbsp;&middot;&nbsp;{{ msg.time }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty-state">No messages yet. Be the first!</p>
+      {% endif %}
+    </section>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Two-tier Flask + MySQL &mdash; running on Docker</p>
+    </div>
+  </footer>
+
+</body>
+</html>

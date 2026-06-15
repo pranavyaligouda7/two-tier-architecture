@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Logs
+*.log
+
+# Docker
+docker-compose.yml
+
+# Build artifacts
+dist/
+build/
+
+# Database files
+*.db
+*.sqlite3
+
+# Cache
+.cache/
+
+# Tests
+tests/
+
+# Documentation
+README.md
