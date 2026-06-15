@@ -41,8 +41,8 @@ EOF
         stage('Deploy') {
             steps {
                 sh '''
-                    docker compose down --remove-orphans || true
-                    docker compose up -d
+                    sudo docker compose down --remove-orphans || true
+                    sudo docker compose up -d
                 '''
             }
         }
