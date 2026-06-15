@@ -33,7 +33,6 @@ def get_db_connection(retries=10, delay=3):
 
     raise Exception(f"Database connection failed: {last_err}")
 
-
 # AUTO DB INITIALIZATION
 def init_db():
     conn = get_db_connection()
