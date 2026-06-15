@@ -20,7 +20,6 @@ missing_vars = [k for k, v in DB_CONFIG.items() if not v]
 if missing_vars:
     raise Exception(f"Missing DB environment variables: {missing_vars}")
 
-
 # DB CONNECTION WITH RETRY
 def get_db_connection(retries=10, delay=3):
     last_err = None
