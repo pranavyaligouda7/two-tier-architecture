@@ -118,7 +118,6 @@ def add():
 
     return redirect(url_for("index"))
 
-
 # RUN LOCALLY (optional)
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
