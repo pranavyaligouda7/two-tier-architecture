@@ -10,7 +10,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./db:/docker-entrypoint-initdb.d
     expose:
       - "3306"          # ← internal only, NOT ports: - "3306:3306"
     networks:
