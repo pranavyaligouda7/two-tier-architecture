@@ -1,0 +1,9 @@
+# Terraform state & secrets
+.terraform
+.terraform.*
+terraform.tfstate
+terraform.tfstate.backup
+# Environment & credentials
+.env .env.*
+# OS/IDE junk
+.DS_Store .idea/ *.swp
